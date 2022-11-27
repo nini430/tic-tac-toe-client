@@ -1,0 +1,275 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+.modal {
+  .modal-content {
+    background: #3a1049 !important;
+    color: #cfa8df;
+
+    button {
+      &:first-child {
+        background: transparent;
+        border: 1px solid #20002c;
+      }
+    }
+  }
+}
+// auth
+
+h1 {
+  font-family: "Rock Salt", cursive;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.auth {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #20002c, #cbb4d4);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    min-width: 30%;
+    background: #20002c;
+    border-radius: 20px;
+    color: white;
+    padding: 30px;
+    -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+
+    span {
+      align-self: center;
+    }
+
+    button {
+      margin-top: 20px;
+      background: #cbb4d4;
+      border: 0;
+      align-self: center;
+      border: 1px solid transparent;
+
+      &:hover {
+        background: #20002c;
+        border: 1px solid white;
+      }
+    }
+  }
+}
+
+// game
+
+.game {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(-45deg, #20002c, #cfa8df);
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    margin-top: 20px;
+  }
+  .user {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+
+    @include mobile {
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+    button {
+      background: #20002c;
+      border: 1px solid #20002c;
+      min-width: 10rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+
+      img {
+        margin-right: 5px;
+      }
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        right: 0;
+      }
+
+      &:hover {
+        background: #cbb4d4;
+      }
+    }
+
+    h1 {
+      font-size: 40px;
+
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .board {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    margin: 150px auto 0;
+    max-width: 920px;
+    border-radius: 20px;
+    gap: 5px;
+    position: relative;
+
+    .line {
+      position: absolute;
+      width: 80px;
+      height: 100%;
+      background: #adaeed;
+    }
+    .row0 {
+      transform: translateY(-159px) rotate(90deg);
+    }
+
+    .row1 {
+      transform: rotate(90deg);
+    }
+
+    .row2 {
+      transform: translateY(159) rotate(90deg);
+    }
+    .col0 {
+      transform: translateX(-323px);
+    }
+
+    .col1 {
+      transform: rotate(0deg);
+    }
+
+    .dia1 {
+      transform: rotate(-45deg);
+    }
+
+    .dia2 {
+      transform: rotate(45deg);
+    }
+
+    .col2 {
+      transform: translateX(323px);
+    }
+
+    .stopGame {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+      left: 0;
+      z-index: 999;
+      cursor: default;
+    }
+
+    .boardRow {
+      width: 100%;
+      display: flex;
+      flex: 1;
+      gap: 5px;
+
+      .cell {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        border-radius: 20px;
+        border: 1px solid #1d0128;
+
+        cursor: pointer;
+        transition: all 0.5s ease;
+        font-family: "Rock Salt", cursive;
+
+        &:hover {
+          background: #1d0128;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .roomInput {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10rem;
+
+    h1 {
+      animation: none;
+      margin-bottom: 20px;
+    }
+
+    .inputGroup {
+      input {
+        box-shadow: none !important;
+        border: 1px solid #20002c !important;
+      }
+
+      button {
+        background: #20002c;
+        border: none !important;
+        &:hover {
+          background: #cbb4d4;
+        }
+      }
+    }
+  }
+
+  // board
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073,
+      0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+      0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
