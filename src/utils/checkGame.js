@@ -11,7 +11,7 @@ export const checkGame = (board, playerSymbol) => {
     }
 
     if (row.every((value) => value !== playerSymbol && value !== null)) {
-      return [false, true, "row1" + i];
+      return [false, true, "row" + i];
     }
   }
 
