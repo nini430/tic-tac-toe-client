@@ -77,7 +77,7 @@ const Room = () => {
     }
   });
   return (
-    <div className={`board ${className}`}>
+    <div className="board">
       {tryAgain && <ModalComponent />}
       {!myTurn && <div className="stopGame" />}
       {board?.map((row, rowIndex) => {
