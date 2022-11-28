@@ -17,8 +17,7 @@ export const AuthContextProvider = ({ children }) => {
   const login = async (inputs) => {
     const res = await axios.post(
       "https://tic-tac-toe-app-mutliplayers.herokuapp.com/api/auth/login",
-      inputs,
-      { withCredentials: true }
+      inputs
     );
     setCurrentUser(res.data);
   };
