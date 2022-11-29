@@ -79,7 +79,7 @@ const Room = () => {
   return (
     <div className="board">
       {tryAgain && <ModalComponent />}
-      {!myTurn && <div className="stopGame" />}
+      {!myTurn||tryAgain && <div className="stopGame" />}
       {board?.map((row, rowIndex) => {
         return (
           <div key={rowIndex} className="boardRow">
