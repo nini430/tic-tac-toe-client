@@ -102,9 +102,7 @@ const ModalComponent = () => {
         <Modal
           className="modal"
           show={tryAgain}
-          onHide={() =>
-            dispatch({ type: actionTypes.TRY_AGAIN, payload: false })
-          }
+          
         >
           <Modal.Header>
             <Modal.Title>Try Again</Modal.Title>
